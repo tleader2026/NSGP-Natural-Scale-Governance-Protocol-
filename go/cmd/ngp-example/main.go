@@ -9,7 +9,7 @@ import (
 func main() {
 	inputs := ngp.EmptyInputs()
 	inputs[ngp.Person] = ngp.ScaleInput{StakesDensity: 0.95, Harmony: -0.60, Admissible: true, Weight: 1.0}
-	inputs[ngp.Individuals] = ngp.ScaleInput{StakesDensity: 0.80, Harmony: -0.30, Admissible: true, Weight: 1.0}
+	inputs[ngp.Peers] = ngp.ScaleInput{StakesDensity: 0.80, Harmony: -0.30, Admissible: true, Weight: 1.0}
 	inputs[ngp.Family] = ngp.ScaleInput{StakesDensity: 0.70, Harmony: -0.20, Admissible: true, Weight: 1.0}
 	inputs[ngp.Community] = ngp.ScaleInput{StakesDensity: 0.90, Harmony: -0.55, Admissible: true, Weight: 1.0}
 	inputs[ngp.Neighborhood] = ngp.ScaleInput{StakesDensity: 0.85, Harmony: -0.65, Admissible: true, Weight: 1.0}
@@ -41,4 +41,3 @@ func main() {
 		)
 	}
 }
-
