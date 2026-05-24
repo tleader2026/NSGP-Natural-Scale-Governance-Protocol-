@@ -1,0 +1,19 @@
+{
+  "action": "build_factory_near_residential_community",
+  "scales": [
+    { "scale": "person", "stakes_density": 0.95, "harmony": -0.60, "admissible": true, "weight": 1.0 },
+    { "scale": "individuals", "stakes_density": 0.80, "harmony": -0.30, "admissible": true, "weight": 1.0 },
+    { "scale": "family", "stakes_density": 0.70, "harmony": -0.20, "admissible": true, "weight": 1.0 },
+    { "scale": "community", "stakes_density": 0.90, "harmony": -0.55, "admissible": true, "weight": 1.0 },
+    { "scale": "neighborhood", "stakes_density": 0.85, "harmony": -0.65, "admissible": true, "weight": 1.0 },
+    { "scale": "institution", "stakes_density": 0.75, "harmony": 0.80, "admissible": true, "weight": 1.0 },
+    { "scale": "city", "stakes_density": 0.70, "harmony": 0.35, "admissible": true, "weight": 1.0 },
+    { "scale": "county", "stakes_density": 0.55, "harmony": 0.25, "admissible": true, "weight": 1.0 },
+    { "scale": "region", "stakes_density": 0.60, "harmony": 0.20, "admissible": true, "weight": 1.0 },
+    { "scale": "state", "stakes_density": 0.65, "harmony": 0.25, "admissible": true, "weight": 1.0 },
+    { "scale": "country", "stakes_density": 0.50, "harmony": 0.10, "admissible": true, "weight": 1.0 },
+    { "scale": "continent", "stakes_density": 0.30, "harmony": -0.05, "admissible": true, "weight": 1.0 },
+    { "scale": "planet", "stakes_density": 0.90, "harmony": -0.70, "admissible": true, "weight": 1.0 }
+  ]
+}
+
