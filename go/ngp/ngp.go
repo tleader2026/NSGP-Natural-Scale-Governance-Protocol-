@@ -6,7 +6,7 @@ type Scale int
 
 const (
 	Person Scale = iota
-	Individuals
+	Peers
 	Family
 	Community
 	Neighborhood
@@ -23,7 +23,7 @@ const (
 
 var scaleNames = [...]string{
 	"person",
-	"individuals",
+	"peers",
 	"family",
 	"community",
 	"neighborhood",
@@ -114,4 +114,3 @@ func Evaluate(inputs []ScaleInput, start Scale, end Scale) (Evaluation, error) {
 
 	return evaluation, nil
 }
-
