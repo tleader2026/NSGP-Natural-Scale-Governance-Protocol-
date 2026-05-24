@@ -2,7 +2,7 @@
 #[repr(usize)]
 pub enum Scale {
     Person = 0,
-    Individuals = 1,
+    Peers = 1,
     Family = 2,
     Community = 3,
     Neighborhood = 4,
@@ -20,7 +20,7 @@ pub const SCALE_COUNT: usize = 13;
 
 pub const SCALE_NAMES: [&str; SCALE_COUNT] = [
     "person",
-    "individuals",
+    "peers",
     "family",
     "community",
     "neighborhood",
@@ -129,7 +129,7 @@ pub fn evaluate(inputs: &[ScaleInput; SCALE_COUNT], start: Scale, end: Scale) ->
 fn scale_from_index(index: usize) -> Scale {
     match index {
         0 => Scale::Person,
-        1 => Scale::Individuals,
+        1 => Scale::Peers,
         2 => Scale::Family,
         3 => Scale::Community,
         4 => Scale::Neighborhood,
@@ -171,4 +171,3 @@ mod tests {
         assert_eq!(result.constraint_failures, 0);
     }
 }
-
