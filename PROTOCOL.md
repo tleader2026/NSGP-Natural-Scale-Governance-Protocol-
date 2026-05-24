@@ -8,21 +8,23 @@ The protocol evaluates a governance action across scale. It does not automate mo
 
 ## Canonical Scale Axis
 
-| Index | Symbol | Name |
-| --- | --- | --- |
-| 0 | s1 | person |
-| 1 | s2 | individuals |
-| 2 | s3 | family |
-| 3 | s4 | community |
-| 4 | s5 | neighborhood |
-| 5 | s6 | institution |
-| 6 | s7 | city |
-| 7 | s8 | county |
-| 8 | s9 | region |
-| 9 | s10 | state |
-| 10 | s11 | country |
-| 11 | s12 | continent |
-| 12 | s13 | planet |
+| Index | Symbol | Name         |
+|-------|--------|--------------|
+| 0     | s1     | person       |
+| 1     | s2     | peers        |
+| 2     | s3     | family       |
+| 3     | s4     | community    |
+| 4     | s5     | neighborhood |
+| 5     | s6     | institution  |
+| 6     | s7     | city         |
+| 7     | s8     | county       |
+| 8     | s9     | region       |
+| 9     | s10    | state        |
+| 10    | s11    | country      |
+| 11    | s12    | continent    |
+| 12    | s13    | planet       |
+
+> `s1` (person) is a single individual. `s2` (peers) covers 2–3 people in a loose, non-familial relationship — distinct from `s3` (family), which implies a deeper relational bond.
 
 The C implementation is the reference for enum order and default scoring semantics.
 
@@ -30,21 +32,17 @@ The C implementation is the reference for enum order and default scoring semanti
 
 Each scale receives:
 
-```text
-stakes_density: float
-harmony: float
-admissible: boolean
-weight: float
-```
+- `stakes_density`: float
+- `harmony`: float
+- `admissible`: boolean
+- `weight`: float
 
 Recommended prototype ranges:
 
-```text
-stakes_density: 0.0 to 1.0
-harmony: -1.0 to 1.0
-admissible: true or false
-weight: 0.0 or greater
-```
+- `stakes_density`: `0.0` to `1.0`
+- `harmony`: `-1.0` to `1.0`
+- `admissible`: `true` or `false`
+- `weight`: `0.0` or greater
 
 The prototype does not clamp values. Implementations should surface validation separately so research users can test alternative ranges.
 
@@ -52,43 +50,39 @@ The prototype does not clamp values. Implementations should surface validation s
 
 For a selected interval `[s_a, s_b]`, each scale contribution is:
 
-```text
+```
 contribution_i = stakes_density_i * harmony_i * admissible_i * weight_i
 ```
 
 Where:
 
-```text
-admissible_i = 1.0 if true
-admissible_i = 0.0 if false
-```
+- `admissible_i = 1.0` if true
+- `admissible_i = 0.0` if false
 
 The aggregate score is:
 
-```text
+```
 score = sum contribution_i
 ```
 
 ## Output Contract
 
-Every implementation should return:
+Every implementation must return:
 
-```text
-score: float
-conflict_count: integer
-constraint_failures: integer
-outputs: per-scale contribution records
-```
+- `score`: float — aggregate weighted sum across the evaluated range
+- `conflict_count`: integer — number of scales where `contribution < 0`
+- `constraint_failures`: integer — number of scales where `admissible = false`
+- `outputs`: per-scale contribution records
 
-A scale is counted as a conflict when its contribution is less than zero.
+A scale is counted as a **conflict** when its contribution is less than zero (harmony is negative at that scale).
 
-A scale is counted as a constraint failure when `admissible` is false.
+A scale is counted as a **constraint failure** when `admissible` is false.
 
 ## Implementation Layers
 
 ### C Core
 
-The C core is the reference implementation intended for infrastructure, operating-system, embedded, and high-trust environments.
+The C core is the reference implementation intended for infrastructure, operating-system, embedded, and high-trust environments. It is an infrastructure primitive: allocation-free, dependency-free, and stable.
 
 The current C API is intentionally allocation-free for evaluation:
 
