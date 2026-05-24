@@ -1,8 +1,8 @@
-# Natural Governance Protocol Prototype
+# Natural Scale Governance Protocol Prototype
 
-This repository is an initial operational prototype for the Natural Governance Protocol (NGP).
+This repository is an initial operational prototype for the Natural Scale Governance Protocol (NSGP).
 
-NGP evaluates a governance action across a fixed scale ladder:
+NSGP evaluates a governance action across a fixed scale ladder:
 
 ```text
 s1  = person
