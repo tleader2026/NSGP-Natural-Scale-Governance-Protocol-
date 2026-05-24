@@ -4,7 +4,7 @@ fn main() {
     let mut inputs = empty_inputs();
 
     inputs[Scale::Person as usize] = ScaleInput { stakes_density: 0.95, harmony: -0.60, admissible: true, weight: 1.0 };
-    inputs[Scale::Individuals as usize] = ScaleInput { stakes_density: 0.80, harmony: -0.30, admissible: true, weight: 1.0 };
+    inputs[Scale::Peers as usize] = ScaleInput { stakes_density: 0.80, harmony: -0.30, admissible: true, weight: 1.0 };
     inputs[Scale::Family as usize] = ScaleInput { stakes_density: 0.70, harmony: -0.20, admissible: true, weight: 1.0 };
     inputs[Scale::Community as usize] = ScaleInput { stakes_density: 0.90, harmony: -0.55, admissible: true, weight: 1.0 };
     inputs[Scale::Neighborhood as usize] = ScaleInput { stakes_density: 0.85, harmony: -0.65, admissible: true, weight: 1.0 };
