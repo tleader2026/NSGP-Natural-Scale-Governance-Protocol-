@@ -5,7 +5,7 @@ from typing import Iterable
 
 class Scale(IntEnum):
     PERSON = 0
-    INDIVIDUALS = 1
+    PEERS = 1
     FAMILY = 2
     COMMUNITY = 3
     NEIGHBORHOOD = 4
@@ -21,7 +21,7 @@ class Scale(IntEnum):
 
 SCALE_NAMES = [
     "person",
-    "individuals",
+    "peers",
     "family",
     "community",
     "neighborhood",
@@ -110,4 +110,3 @@ def evaluate(
         constraint_failures=constraint_failures,
         outputs=tuple(outputs),
     )
-
