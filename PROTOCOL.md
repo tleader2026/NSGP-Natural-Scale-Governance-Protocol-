@@ -1,6 +1,6 @@
-# Natural Governance Protocol v0
+# Natural Scale Governance Protocol v0
 
-This document defines the prototype operational contract for Natural Governance Protocol implementations.
+This document defines the prototype operational contract for Natural Scale Governance Protocol implementations.
 
 ## Objective
 
@@ -121,4 +121,3 @@ The Rust implementation is intended for high-assurance applications, local agent
 - Uncertainty intervals for `stakes_density` and `harmony`.
 - Explainable provenance fields for every score.
 - Deliberation triggers when high-stakes scales diverge sharply.
-
