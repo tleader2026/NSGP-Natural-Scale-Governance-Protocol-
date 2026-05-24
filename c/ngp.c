@@ -1,8 +1,8 @@
 #include "ngp.h"
 
-static const char *NGP_SCALE_NAMES[NGP_SCALE_COUNT] = {
+static const char *NSGP_SCALE_NAMES[NSGP_SCALE_COUNT] = {
     "person",
-    "individuals",
+    "peers",
     "family",
     "community",
     "neighborhood",
@@ -16,18 +16,18 @@ static const char *NGP_SCALE_NAMES[NGP_SCALE_COUNT] = {
     "planet"
 };
 
-const char *ngp_scale_name(NgpScale scale)
+const char *nsgp_scale_name(NsgpScale scale)
 {
-    if (scale < 0 || scale >= NGP_SCALE_COUNT) {
+    if (scale < 0 || scale >= NSGP_SCALE_COUNT) {
         return "unknown";
     }
 
-    return NGP_SCALE_NAMES[scale];
+    return NSGP_SCALE_NAMES[scale];
 }
 
-NgpScaleInput ngp_default_input(void)
+NsgpScaleInput nsgp_default_input(void)
 {
-    NgpScaleInput input;
+    NsgpScaleInput input;
     input.stakes_density = 0.0;
     input.harmony = 0.0;
     input.admissible = 1;
@@ -35,33 +35,33 @@ NgpScaleInput ngp_default_input(void)
     return input;
 }
 
-NgpEvaluation ngp_evaluate(
-    const NgpScaleInput inputs[NGP_SCALE_COUNT],
-    NgpScale start,
-    NgpScale end
+NsgpEvaluation nsgp_evaluate(
+    const NsgpScaleInput inputs[NSGP_SCALE_COUNT],
+    NsgpScale start,
+    NsgpScale end
 )
 {
-    NgpEvaluation evaluation;
+    NsgpEvaluation evaluation;
     size_t i;
 
     evaluation.score = 0.0;
     evaluation.conflict_count = 0;
     evaluation.constraint_failures = 0;
 
-    for (i = 0; i < NGP_SCALE_COUNT; i++) {
-        evaluation.outputs[i].scale = (NgpScale)i;
+    for (i = 0; i < NSGP_SCALE_COUNT; i++) {
+        evaluation.outputs[i].scale = (NsgpScale)i;
         evaluation.outputs[i].contribution = 0.0;
         evaluation.outputs[i].constraint_failed = 0;
     }
 
     if (start > end) {
-        NgpScale tmp = start;
+        NsgpScale tmp = start;
         start = end;
         end = tmp;
     }
 
-    for (i = (size_t)start; i <= (size_t)end && i < NGP_SCALE_COUNT; i++) {
-        const NgpScaleInput input = inputs[i];
+    for (i = (size_t)start; i <= (size_t)end && i < NSGP_SCALE_COUNT; i++) {
+        const NsgpScaleInput input = inputs[i];
         const int admissible = input.admissible ? 1 : 0;
         const double contribution =
             input.stakes_density * input.harmony * (double)admissible * input.weight;
@@ -81,4 +81,3 @@ NgpEvaluation ngp_evaluate(
 
     return evaluation;
 }
-
