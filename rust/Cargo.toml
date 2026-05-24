@@ -3,7 +3,7 @@ name = "natural_governance_protocol"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "Prototype SDK for the Natural Governance Protocol."
+description = "Prototype SDK for the Natural Scale Governance Protocol."
 
 [lib]
 name = "ngp"
@@ -12,4 +12,3 @@ path = "src/lib.rs"
 [[example]]
 name = "factory"
 path = "examples/factory.rs"
-
