@@ -87,10 +87,10 @@ The C core is the reference implementation intended for infrastructure, operatin
 The current C API is intentionally allocation-free for evaluation:
 
 ```c
-NgpEvaluation ngp_evaluate(
-    const NgpScaleInput inputs[NGP_SCALE_COUNT],
-    NgpScale start,
-    NgpScale end
+NsgpEvaluation nsgp_evaluate(
+    const NsgpScaleInput inputs[NSGP_SCALE_COUNT],
+    NsgpScale start,
+    NsgpScale end
 );
 ```
 
